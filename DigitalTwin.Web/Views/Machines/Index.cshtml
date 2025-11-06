@@ -1,0 +1,21 @@
+﻿@model DigitalTwin.Web.ViewModels.DashboardVM
+<div class="container mt-4">
+    <h2>Control Room — Digital Twin</h2>
+    <div class="row">
+        @foreach (var m in Model.Machines)
+        {
+            <div class="col-md-4">
+                @Html.Partial("_MachineCard", m)
+            </div>
+        }
+    </div>
+
+    <h4 class="mt-4">Recent Events</h4>
+    <ul>
+        @foreach (var e in Model.RecentEvents)
+        {
+            <li>@e</li>
+        }
+    </ul>
+</div>
+

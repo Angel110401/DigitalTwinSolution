@@ -1,0 +1,28 @@
+﻿@model DigitalTwin.Web.ViewModels.MachineVM
+<div class="card mb-3">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Name</h5>
+        <span class="badge bg-secondary">@Model.State</span>
+        <div class="mt-2">
+            <div>T: @Model.Temperature.ToString("F1") °C</div>
+            <div>P: @Model.Pressure.ToString("F1") bar</div>
+            <div>RPM: @Model.Rpm.ToString("F0")</div>
+        </div>
+        <form asp-action="Start" method="post" class="d-inline">
+            <input type="hidden" name="id" value="@Model.Id" />
+            <button class="btn btn-sm btn-success mt-2" type="submit">Start</button>
+        </form>
+        <form asp-action="Stop" method="post" class="d-inline">
+            <input type="hidden" name="id" value="@Model.Id" />
+            <button class="btn btn-sm btn-danger mt-2" type="submit">Stop</button>
+        </form>
+        <form asp-action="Maintenance" method="post" class="d-inline">
+            <input type="hidden" name="id" value="@Model.Id" />
+            <button class="btn btn-sm btn-warning mt-2" type="submit">Maintenance</button>
+        </form>
+        <form asp-action="Ack" method="post" class="d-inline">
+            <input type="hidden" name="id" value="@Model.Id" />
+            <button class="btn btn-sm btn-secondary mt-2" type="submit">Ack Error</button>
+        </form>
+    </div>
+</div>
